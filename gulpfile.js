@@ -1,10 +1,10 @@
 var gulp = require('gulp');
 
-var assetsDev = 'assets/';
-var assetsProd = 'src/';
+var assetsDev = 'development/assets/';
+var assetsProd = 'production/assets/';
 
-var appDev = 'dev/';
-var appProd = 'app/';
+var appDev = 'development/';
+var appProd = 'production/';
 
 /* Mixed */
 var ext_replace = require('gulp-ext-replace');
@@ -35,12 +35,12 @@ gulp.task('build-css', function () {
 });
 
 gulp.task('build-ts', function () {
-    return gulp.src(appDev + '**/*.ts')
+    return gulp.src(appDev + 'components/**/*.ts')
         .pipe(sourcemaps.init())
         .pipe(typescript(tsProject))
         .pipe(sourcemaps.write())
         //.pipe(jsuglify())
-        .pipe(gulp.dest(appProd));
+        .pipe(gulp.dest(appProd + 'components'));
 });
 
 gulp.task('build-img', function () {
@@ -58,7 +58,7 @@ gulp.task('build-html', function () {
 
 gulp.task('watch', function () {
     gulp.watch(appDev + '**/*.ts', ['build-ts']);
-    gulp.watch(assetsDev + 'scss/**/*.scss', ['build-css']);
+    gulp.watch(assetsDev + '**/*.scss', ['build-css']);
     gulp.watch(assetsDev + 'img/*', ['build-img']);
 });
 

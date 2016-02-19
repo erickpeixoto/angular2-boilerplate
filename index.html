@@ -17,17 +17,19 @@
     <script>
         System.config({
             packages: {
-                app: {
-                    format: 'register',
-                    defaultExtension: 'js'
+                production: {
+                      components: {
+                          format: 'register',
+                          defaultExtension: 'js'
+                        }
                 }
             }
         });
-        System.import('app/boot')
+        System.import('production/components/boot')
                 .then(null, console.error.bind(console));
     </script>
 
-    <link rel="stylesheet" href="src/css/app.css">
+    <link rel="stylesheet" href="production/assets/css/app.css">
 </head>
 <!-- 3. Display the application -->
 <body>

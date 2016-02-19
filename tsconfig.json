@@ -10,6 +10,20 @@
     "noImplicitAny": false
   },
   "exclude": [
-    "node_modules"
-  ]
+    "node_modules",
+    "development/**/*.js",
+    "development/**/*.map"
+  ],
+  "filesGlob": [
+    "development/**/*.ts",
+    "typings/**/*.d.ts",
+    "development/boot.ts"
+  ],
+  "files": [
+    "development/components/app.component.ts",
+    "development/components/boot.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
 }
